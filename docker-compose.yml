@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  softkify-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: softkify-fe-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  # Opcional: Servicio nginx para proxy inverso (más profesional)
+  # softkify-nginx:
+  #   image: nginx:alpine
+  #   container_name: softkify-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./certs:/etc/nginx/certs:ro
+  #   depends_on:
+  #     - softkify-frontend
+  #   restart: unless-stopped
+
+# Para desarrollo, también puedes usar:
+# docker-compose -f docker-compose.dev.yml up

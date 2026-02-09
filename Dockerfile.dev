@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copiar solo package.json primero (mejor cachéing)
+COPY package*.json ./
+
+# Instalar dependencias
+RUN npm install
+
+# Copiar el resto del código
+COPY . .
+
+# Exoner puerto de Vite
+EXPOSE 5173
+
+# Comando por defecto (puede ser sobrescrito)
+CMD ["npm", "run", "dev"]
