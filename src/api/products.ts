@@ -1,7 +1,7 @@
 import type { CartItem } from './types';
 
 const cartItems: CartItem[] = [
-  { id: '1', name: 'Product 1', description: 'Description 1', price: 10, stock: 2, active: true, createdAt: '2022-01-01T00:00:00Z', updatedAt: '2022-01-01T00:00:00Z', image: '/sofkify_generic_product.png' },
+  { id: '1', name: 'Product 1000', description: 'Description 1', price: 10, stock: 2, active: true, createdAt: '2022-01-01T00:00:00Z', updatedAt: '2022-01-01T00:00:00Z', image: '/sofkify_generic_product.png' },
   { id: '2', name: 'Product 2', description: 'Description 2', price: 15, stock: 3, active: true, createdAt: '2022-01-01T00:00:00Z', updatedAt: '2022-01-01T00:00:00Z', image: '/sofkify_generic_product.png' },
   { id: '3', name: 'Product 3', description: 'Description 3', price: 20, stock: 5, active: true, createdAt: '2022-01-02T00:00:00Z', updatedAt: '2022-01-02T00:00:00Z', image: '/sofkify_generic_product.png' },
   { id: '4', name: 'Product 4', description: 'Description 4', price: 25, stock: 4, active: true, createdAt: '2022-01-02T00:00:00Z', updatedAt: '2022-01-02T00:00:00Z', image: '/sofkify_generic_product.png' },
