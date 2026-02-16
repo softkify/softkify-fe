@@ -21,7 +21,7 @@ El archivo `src/services/authApi.ts` tenía la URL fija apuntando a `localhost`,
 ```typescript
 // src/services/authApi.ts
 // ERROR: URL fija que ignora las variables de entorno de producción
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'http://localhost:8080';
 
 export const authApi = {
   // ...
@@ -32,7 +32,7 @@ export const authApi = {
 ```typescript
 // src/services/authApi.ts
 // FIX: Usa la variable de entorno VITE_API_BASE_URL, con fallback seguro para local
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
 
 export const authApi = {
   // ...
@@ -40,7 +40,7 @@ export const authApi = {
 ```
 
 #### Fallo (Impacto en Usuario)
-Al intentar registrarse o iniciar sesión desde developer, la aplicación intentaba conectar a `http://localhost:3000/api/users` en la máquina del propio usuario.
+Al intentar registrarse o iniciar sesión desde developer, la aplicación intentaba conectar a `http://localhost:8080/api/users` en la máquina del propio usuario.
 
 **Manifestación**: El botón de "Registrarse" se quedaba cargando indefinidamente o mostraba un error genérico "Network Error", ya que el navegador bloqueaba la petición o simplemente no encontraba el servidor localmente.
 
@@ -318,7 +318,7 @@ describe('API Configuration', () => {
 
     const { API_BASE_URL } = require('../apiConfig');
     
-    expect(API_BASE_URL).toBe('http://localhost:3000');
+    expect(API_BASE_URL).toBe('http://localhost:8080');
   });
 
   test('ALERTA: debe fallar si hay URL hardcodeada', () => {
@@ -510,7 +510,7 @@ Cobertura no es el objetivo final; es un indicador complementario de robustez.
 1. **Nunca hardcodear URLs**: Siempre usar variables de entorno con fallback claro
 2. **Validar configuración en CI/CD**: Agregar test que verifique uso de env vars
 3. **Documentar variables requeridas**: Mantener `.env.example` actualizado
-4. **Code review enfocado**: Revisar específicamente configuración antes de merge
+4. **Code review enfocado**: Revisar específicamen  te configuración antes de merge
 
 ### Del Incidente de CORS (Backend)
 1. Los errores de configuración HTTP pueden ser más críticos que errores lógicos.
