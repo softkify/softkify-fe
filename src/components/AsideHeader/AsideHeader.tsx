@@ -9,6 +9,7 @@ const AsideHeader: React.FC<AsideHeaderProps> = ({ onAction }) => {
       <Link to="/" className="w-40 block" onClick={onAction}>
         <img src="/softkify-logo.jpeg" alt="Logo" className="w-full h-auto object-contain" />
       </Link>
+      <p>soy el cambio</p>
       <nav>
         <ul>
           {navbarItems.map((item, index) => (
