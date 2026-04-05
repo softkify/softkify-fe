@@ -1,3 +1,5 @@
+soy el cambio
+
 # 0. Editores de código apalancador con la IA
  - Intellisense con Windsurf
  - VSCode usado con Git Hub Copilot y Claude Desktop, usando MCP's
